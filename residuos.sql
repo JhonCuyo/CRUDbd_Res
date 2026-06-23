@@ -1,10 +1,6 @@
 CREATE DATABASE IF NOT EXISTS ressol;
 USE ressol;
 
--- =======================================================
--- 1. TABLAS REFERENCIALES 
--- =======================================================
-
 CREATE TABLE TR_Nivel_Toxicidad (
     ID_Toxicidad INT PRIMARY KEY,
     Nivel VARCHAR(20) NOT NULL,
@@ -52,10 +48,6 @@ CREATE TABLE Region (
     estReg CHAR(1) NOT NULL DEFAULT 'A'
 );
 
--- =======================================================
--- 2. TABLAS MAESTRAS
--- =======================================================
-
 CREATE TABLE Empresa_Productora (
     NIF_Empresa VARCHAR(20) PRIMARY KEY,
     Nombre_Empresa VARCHAR(100) NOT NULL,
@@ -98,9 +90,6 @@ CREATE TABLE Residuo (
     FOREIGN KEY (ID_Toxicidad) REFERENCES TR_Nivel_Toxicidad(ID_Toxicidad)
 );
 
--- =======================================================
--- 3. TABLAS ASOCIATIVAS Y TRANSACCIONALES
--- =======================================================
 
 CREATE TABLE Residuo_Constituyente (
     Cod_Residuo VARCHAR(20),
